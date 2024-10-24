@@ -740,7 +740,7 @@
         "safeSearch": false,
         "filterAtSchoolOnly": false,
         "monitorAtSchoolOnly": false,
-        "schedulingEnabled": true,
+        "schedulingEnabled": false,
         "scheduling": {
             "sun": {
                 "enabled": false,
