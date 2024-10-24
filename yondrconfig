@@ -1,6 +1,6 @@
 {
     "policy": {
-        "siteCategoryFilters": [],
+        "siteCategoryFilters": [1,2,3,27,5,4,6,7],
         "siteFilters": [
             {
                 "id": 0,
@@ -49,6 +49,13 @@
                 "url": "chrome-extension://haldlgldplgnggkjaafhelgiaglafanh",
                 "policyId": 0,
                 "filterType": "whitelist",
+                "priority": 1
+            },
+            {
+                "id": 0,
+                "url": "downyondr.com",
+                "policyId": 0,
+                "filterType": "blacklist",
                 "priority": 1
             }
         ],
