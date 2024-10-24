@@ -1,1 +1,805 @@
-{"Config here"}
+{
+    "policy": {
+        "siteCategoryFilters": [],
+        "siteFilters": [
+            {
+                "id": 0,
+                "url": "laptoplookout.com",
+                "policyId": 0,
+                "filterType": "whitelist",
+                "priority": 1
+            },
+            {
+                "id": 0,
+                "url": "goguardian.com",
+                "policyId": 0,
+                "filterType": "whitelist",
+                "priority": 1
+            },
+            {
+                "id": 0,
+                "url": "google.com-default.ws",
+                "policyId": 0,
+                "filterType": "whitelist",
+                "priority": 1
+            },
+            {
+                "id": 0,
+                "url": "blocked.com-default.ws",
+                "policyId": 0,
+                "filterType": "whitelist",
+                "priority": 1
+            },
+            {
+                "id": 0,
+                "url": "google.com/webhp",
+                "policyId": 0,
+                "filterType": "whitelist",
+                "priority": 1
+            },
+            {
+                "id": 0,
+                "url": "accounts.youtube.com",
+                "policyId": 0,
+                "filterType": "whitelist",
+                "priority": 1
+            },
+            {
+                "id": 0,
+                "url": "chrome-extension://haldlgldplgnggkjaafhelgiaglafanh",
+                "policyId": 0,
+                "filterType": "whitelist",
+                "priority": 1
+            }
+        ],
+        "youTubeFilters": [],
+        "youTubeChannelFilters": [],
+        "youTubeKeywordFilters": [],
+        "youTubeCategoryFilters": [],
+        "appFilters": [
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1630,
+                "appId": "aadhbdhoolgcjfdplbjpfmmobcjmhklf",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1631,
+                "appId": "afeiopohodampmlfjjildanioclfhhel",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1632,
+                "appId": "aglghfdhijkmlnflejehpgekkpkhicje",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1633,
+                "appId": "ajfiodhbiellfpcjjedhmmmpeeaebmep",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1634,
+                "appId": "alfieeobdjkockpabmmfdpaihegikdgl",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1635,
+                "appId": "angbhbjbplfpkbcijbkhecjfcfgjbjoc",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1636,
+                "appId": "apkkeeflomicljpmdpbedfbaigbnkbcd",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1637,
+                "appId": "babohibggklbflphkfkbdndffongdhlg",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1638,
+                "appId": "baiknijknkfpoaehpnnjnjiidjonhfbb",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1639,
+                "appId": "bblcccknbdbplgmdjnnikffefhdlobhp",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1640,
+                "appId": "bihmplhobchoageeokmgbdihknkjbknd",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1641,
+                "appId": "bojjojmafbggldbgcohmpnedmimmicjf",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1642,
+                "appId": "caaaookbdgdemjmegjgnbpmlchibhmpd",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1643,
+                "appId": "cjnfcmkfdcoeckplikldabeggcohmbmj",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1644,
+                "appId": "cmgnmcnlncejehjlnhaglpnoolgbflbd",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1645,
+                "appId": "dfdhngcahhplaibahkkjhdklhihbaikl",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1646,
+                "appId": "eamicijbgdecgjjjhkncjlkanhbdjeje",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1647,
+                "appId": "eelphgpfmjhndihoopgadghfonahifel",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1648,
+                "appId": "eiegmpbpiopbnlfjdlhnnjhcknihelfd",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1649,
+                "appId": "emfinbmielocnlhgmfkkmkngdoccbadn",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1650,
+                "appId": "emkajaicgpjdphehdhppleonljbjiiji",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1651,
+                "appId": "eocembdiaelakgjoheclffagagbgpejg",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1652,
+                "appId": "faaljkdndnfoagcmhedlmbgieoocemch",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1653,
+                "appId": "fbfmehmombnmaanmejekcplgjcpkbmhj",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1654,
+                "appId": "fdcgdnkidjaadafnichfpabhfomcebme",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1655,
+                "appId": "flcjomjfcpbemellddfgglnkfhjdnlhh",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1656,
+                "appId": "gacdmhaofgobmfldefkjoiokkbojcjfj",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1657,
+                "appId": "gchhimlnjdafdlkojbffdkogjhhkdepf",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1658,
+                "appId": "geeccpphlhfkjfocapkbobnigbecngnl",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1659,
+                "appId": "gfmpdjndpbomeamnkmjepilkkcoeicma",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1660,
+                "appId": "gjknjjomckknofjidppipffbpoekiipm",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1661,
+                "appId": "gkojfkhlekighikafcpjkiklfbnlmeio",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1662,
+                "appId": "hbgknjagaclofapkgkeapamhmglnbphi",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1663,
+                "appId": "heajfgnegopeedndeahkdjedjkjcmnpb",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1664,
+                "appId": "hgchgdfelliaigmoclcefcabaoipgonc",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1666,
+                "appId": "hidlnaoajnajinkabmjkdhoclkdkhbgm",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1667,
+                "appId": "hnmpcagpplmpfojmgmnngilcnanddlhb",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1668,
+                "appId": "hoapmlpnmpaehilehggglehfdlnoegck",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1669,
+                "appId": "hpfbfcdoiipkblfeknfggcmfppacjife",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1670,
+                "appId": "iajpapiodpjcgiocblamfbdollecekmh",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1671,
+                "appId": "iamifmhbkeeccbjkaenolpghohlpnioi",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1672,
+                "appId": "icklgohmolmmdagbigdkhhcgdechbeje",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1673,
+                "appId": "idefjamndcpplnamdlbodoebjgkpdmpn",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1674,
+                "appId": "ifcoiiehocgogcbkcldcejelfmhckjhk",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1675,
+                "appId": "igjdnbinhdopidiiijnamkhegligjdma",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1676,
+                "appId": "jdpjnbhpflldohanmjgmnjanfhijophh",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1677,
+                "appId": "jmbpgkfaieadlgfjggkodlalblheodlm",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1678,
+                "appId": "joifooonefeagjaopgimeiclhkklgifo",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1679,
+                "appId": "kfbcpemadcnjojeddlpcnhemhailghen",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1680,
+                "appId": "kpiecbcckbofpmkkkdibbllpinceiihk",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1681,
+                "appId": "kppakjegpcjbdlkghgmdlnlmohhoelnd",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1682,
+                "appId": "lmfbdeoocfdmiifgojjmbbpkmdjbimpf",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1683,
+                "appId": "lobjodcpekhnpndpjgkikjecmcjbdifd",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1684,
+                "appId": "mbnapgdcalopgfpleapnelndfhlebpmg",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1685,
+                "appId": "mfpgbbggmepclcmknfhmodkpecibcjne",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1686,
+                "appId": "mghdpehejfekicfjcdbfofhcmnjhgaag",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1687,
+                "appId": "mjnbclmflcpookeapghfhapeffmpodij",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1688,
+                "appId": "mlbfhnllbfiiikojkpgmgeaddhofpooj",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1689,
+                "appId": "mnjmjnofadekgmfahkikcjbckdofddbb",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1690,
+                "appId": "mnloefcpaepkpmhaoipjkpikbnkmbnic",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1691,
+                "appId": "nbcojefnccbanplpoffopkoepjmhgdgh",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1692,
+                "appId": "nbkcgajmoblcepfdmpfnphjjmbfnckhp",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1693,
+                "appId": "ncmnhiijmdhplkmkpejmmbpjiojchefe",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1694,
+                "appId": "nefehiekhccmedmdoilmhikhdiiijkbe",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1695,
+                "appId": "nigokkecfbeblnmjhklmkcinncngkabb",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1696,
+                "appId": "nkjfdcbhcglpgcfchigbdelajmlomdem",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1697,
+                "appId": "nlbejmccbhkncgokjcmghpfloaajcffj",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1698,
+                "appId": "odiddbcijempnhhobijfbggjogofdlgl",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1699,
+                "appId": "ofajaichpldiccooknabagikjhllghed",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1700,
+                "appId": "oghkljobbhapacbahlneolfclkniiami",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1701,
+                "appId": "ogkipbacipppfmfcleacccgeijihflop",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1702,
+                "appId": "ojagfgibjiofppmilfbgmipfelkhcccn",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1703,
+                "appId": "oknedbefhljbabbioodiahaapfbogceg",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1704,
+                "appId": "omdakjcmkglenbhjadbccaookpfjihpa",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1705,
+                "appId": "omffalpefeedfgnceldbgbeoamchpnhh",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1706,
+                "appId": "omghfjlpggmjjaagoclmmobgdodcjboh",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1707,
+                "appId": "oofgbpoabipfcfjapgnbbjjaenockbdp",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1708,
+                "appId": "oojelfbadlbnncifgffnadgjgckcepch",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1709,
+                "appId": "pddlkidaibpbhpkfbhkbeolbagpmkhhn",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1710,
+                "appId": "pohhhgpookhmdgjnngkgkbhklplbompp",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 1711,
+                "appId": "pooljnboifbodgifngpppfklhifechoe",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 38925,
+                "appId": "joaofgaoaipdmglbfjkjfeefdkjjaine",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 38926,
+                "appId": "meogakhjhhdiabadpammblhmondfcnhg",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 38927,
+                "appId": "bbhleegfafbdldebhlcadidhjkakjdop",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 39492,
+                "appId": "alaoimaeafbgfglpffgcidfgbjnekifp",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 49218,
+                "appId": "npmjmknnkabanecfgjllblbhccmafioi",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 52310,
+                "appId": "lfaekagbhlgiacajjhiclibdnoodnmpf",
+                "policyId": 0
+            },
+            {
+                "filterType": "blacklist",
+                "priority": 1,
+                "id": 52603,
+                "appId": "bclkjlcjdfpgodapjlnljdogheanjapa",
+                "policyId": 0
+            },
+            {
+                "id": 0,
+                "appId": "cfepplhmhogokllhgkilcgjmbcjkkilh",
+                "policyId": 0,
+                "filterType": "blacklist",
+                "priority": 1
+            },
+            {
+                "id": 0,
+                "appId": "fdcgdnkidjaadafnichfpabhfomcebme",
+                "policyId": 0,
+                "filterType": "blacklist",
+                "priority": 1
+            },
+            {
+                "id": 0,
+                "appId": "mghdpehejfekicfjcdbfofhcmnjhgaag",
+                "policyId": 0,
+                "filterType": "blacklist",
+                "priority": 1
+            }
+        ],
+        "overrideSettings": [],
+        "siteOverrides": [],
+        "videoOverrides": [],
+        "youTubeSettings": {
+            "safeMode": {
+                "value": false,
+                "policyId": 0
+            },
+            "ageRestricted": {
+                "value": false,
+                "policyId": 0
+            },
+            "blockComments": {
+                "value": false,
+                "policyId": 0
+            },
+            "blockSidebar": {
+                "value": false,
+                "policyId": 0
+            },
+            "blockLiveChat": {
+                "value": false,
+                "policyId": 0
+            }
+        },
+        "appSettings": {
+            "safeMode": {
+                "value": false,
+                "policyId": 0
+            }
+        },
+        "siteSettings": {
+            "safeMode": {
+                "value": false,
+                "policyId": 0
+            }
+        }
+    },
+    "orgSettings": {
+        "IPRanges": [],
+        "safeTranslate": false,
+        "blockDirectIP": false,
+        "safeSearch": false,
+        "filterAtSchoolOnly": false,
+        "monitorAtSchoolOnly": false,
+        "schedulingEnabled": true,
+        "scheduling": {
+            "sun": {
+                "enabled": false,
+                "startMin": 0,
+                "endMin": 1440
+            },
+            "mon": {
+                "enabled": true,
+                "startMin": 480,
+                "endMin": 900
+            },
+            "tue": {
+                "enabled": true,
+                "startMin": 480,
+                "endMin": 900
+            },
+            "wed": {
+                "enabled": true,
+                "startMin": 480,
+                "endMin": 900
+            },
+            "thu": {
+                "enabled": true,
+                "startMin": 480,
+                "endMin": 900
+            },
+            "fri": {
+                "enabled": true,
+                "startMin": 480,
+                "endMin": 900
+            },
+            "sat": {
+                "enabled": false,
+                "startMin": 0,
+                "endMin": 1440
+            }
+        },
+        "blockConsumerAccounts": {
+            "urls": [
+                "accounts.google.com/Logout",
+                "accounts.youtube.com/accounts/Logout2",
+                "accounts.google.com/AddSession"
+            ],
+            "enabled": false
+        },
+        "blockSubFrames": false,
+        "proxyFilteringEnabled": false,
+        "explicitImagesFilteringEnabled": false,
+        "proxiesInEnabled": false,
+        "proxiesOutEnabled": false,
+        "explicitImagesInEnabled": false,
+        "explicitImagesOutEnabled": false,
+        "timezone": "America/New_York"
+    },
+    "dnsifNetworkSettings": null,
+    "parentSettings": {
+        "blockedHostnames": [],
+        "pauseSchedules": [],
+        "command": null
+    },
+    "policyVersion": 0
+}
