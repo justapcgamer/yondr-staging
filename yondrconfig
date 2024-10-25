@@ -1,6 +1,6 @@
 {
     "policy": {
-        "siteCategoryFilters": [1,2,3,27,5,4,6,7],
+        "siteCategoryFilters": [],
         "siteFilters": [
             {
                 "id": 0,
@@ -53,7 +53,7 @@
             },
             {
                 "id": 0,
-                "url": "downyondr.com",
+                "url": "testblockmesitepage.com",
                 "policyId": 0,
                 "filterType": "blacklist",
                 "priority": 1
