@@ -1,0 +1,4724 @@
+{
+    "privacyVersion": 5,
+    "settings": {
+        "metrics": {
+            "logSettings": {
+                "logLevel": "ERROR",
+                "sampleRate": null,
+                "logFlushIntervalMs": null,
+                "disableLogging": false,
+                "maxSubmissionSize": null,
+                "numRetries": null
+            },
+            "statsDSettings": {
+                "excludedMetrics": [],
+                "sampleRate": null,
+                "statsDFlushIntervalMs": null,
+                "disableStatsD": false,
+                "maxSubmissionSize": null,
+                "numRetries": null
+            }
+        },
+        "cbOnly": true,
+        "onlyMonitorManagedDevices": false,
+        "onlyFilterManagedDevices": false,
+        "showPrivacyBanner": true,
+        "isUserCurrentlyTracked": true,
+        "features": {
+            "adminPolicyV2": true,
+            "appExtLookup": true,
+            "filterByDefault": true,
+            "keyflagging": false,
+            "morse": false,
+            "timeSync": false,
+            "scripters": true,
+            "panther": true,
+            "liminexFallback": false,
+            "googleTime": true,
+            "ipLookup": {
+                "url": "https://ip.goguardian.com/ip",
+                "key": null,
+                "timeoutMs": 5000,
+                "retries": 5
+            },
+            "youtube": {
+                "youtubeDefault": {
+                    "hostname": [
+                        "www.youtube.com",
+                        "www.youtube.com.",
+                        "gaming.youtube.com",
+                        "translate.googleusercontent.com",
+                        "m.youtube.com",
+                        "www.youtube-nocookie.com"
+                    ],
+                    "queryParams": [
+                        "v",
+                        "u.v"
+                    ],
+                    "regExps": [
+                        "youtube\\.com\\/+v\\/+([^/?%]+)",
+                        "youtube\\.com\\/+e\\/+([/?%]+)",
+                        "youtube\\.com\\/+embed\\/+([^/?%]+)",
+                        "youtube-nocookie\\.com\\/+embed\\/+([^/?%]+)",
+                        "youtube\\.com\\/tv.*v=([^/?%&]+)"
+                    ],
+                    "topLevelVideoFrameSelectors": [
+                        "player-api"
+                    ],
+                    "topLevelVideoFrameIdSelectors": [
+                        "player-api",
+                        "leanback-player-container",
+                        "player",
+                        "player-container",
+                        "upsell-video"
+                    ],
+                    "topLevelVideoFrameElementSelectors": [
+                        "embed"
+                    ],
+                    "nonTopLevelVideoFrameSelectors": [
+                        "body"
+                    ],
+                    "videoSelectors": [
+                        "html5-main-video",
+                        "_mxvb",
+                        "_mcib"
+                    ],
+                    "videoIdSelectors": [
+                        "plugin"
+                    ],
+                    "videoQuerySelectors": {
+                        "div#watch7-content meta[itemprop=videoId]": "content"
+                    },
+                    "titleSelectors": [
+                        "ytp-title-link"
+                    ],
+                    "commentSelectors": [
+                        "watch-discussion",
+                        "comments"
+                    ],
+                    "sidebarSelectors": [
+                        "watch7-sidebar",
+                        "related"
+                    ]
+                },
+                "youtubeChannelVideo": {
+                    "hostname": [
+                        "www.youtube.com",
+                        "m.youtube.com"
+                    ],
+                    "selectors": [
+                        {
+                            "selector": "upsell-video",
+                            "attribute": "data-video-id"
+                        }
+                    ],
+                    "videoSelectors": [
+                        "html5-main-video",
+                        "_mxvb",
+                        "_mcib"
+                    ],
+                    "titleSelectors": [
+                        "ytp-title-link"
+                    ]
+                },
+                "apiSettings": {
+                    "url": "https://www.googleapis.com/youtube/v3/videos",
+                    "parameters": {
+                        "videoIdKey": "id",
+                        "part": "snippet,contentDetails",
+                        "key": "fakeKeyForNow"
+                    },
+                    "keys": {
+                        "title": "items.0.snippet.localized.title",
+                        "uploader": "items.0.snippet.channelTitle",
+                        "categoryId": "items.0.snippet.categoryId",
+                        "rating": "items.0.contentDetails.contentRating.ytRating",
+                        "description": "items.0.snippet.localized.description",
+                        "channelId": "items.0.snippet.channelId"
+                    },
+                    "categories": []
+                },
+                "settings": {
+                    "hostnameRegexes": [
+                        "^(.+\\.)?youtube\\.com\\.?",
+                        "^(.+\\.)?youtube-nocookie\\.com\\.?",
+                        "^(.+\\.)?youtubeeducation\\.com\\.?",
+                        "translate\\.googleusercontent\\.com\\.?"
+                    ],
+                    "selectors": {
+                        "player": [
+                            "#movie_player",
+                            ".html5-video-player"
+                        ],
+                        "comments": [
+                            "#comments",
+                            "#watch-discussion"
+                        ],
+                        "sidebar": [
+                            "#related",
+                            "#sidebar",
+                            "#watch7-sidebar-contents"
+                        ],
+                        "liveChat": [
+                            "#chat",
+                            "#chat-messages",
+                            "#watch-sidebar-live-chat"
+                        ]
+                    }
+                }
+            },
+            "entities": {
+                "jsonEnabled": true,
+                "avroEnabled": true,
+                "entitiesInserter": "com.goguardian.events.EntityBatchPreAuth.json",
+                "viewingsInserter": "com.goguardian.events.viewing.ViewingBatchPreAuth",
+                "keyFlags": false,
+                "entityManagerV3Enabled": true
+            },
+            "present": true,
+            "deviceId": true,
+            "dataMerge": true,
+            "nightlyReload": true,
+            "deferUpdates": true,
+            "useNewBlockUrl": true,
+            "x3": {
+                "collectLowConfidence": false,
+                "extensionId": "llfhakomhjfjndcjncginchhbjhkfcmo",
+                "isEnabled": true,
+                "lowConfidenceSamplingConstant": 10000000000,
+                "reportingLowerBound": 0,
+                "safetyNet": {
+                    "enabled": true,
+                    "domains": [
+                        "mail.google.com",
+                        "docs.google.com"
+                    ],
+                    "regexes": [
+                        "(\\b(commit|committed|committing|comit|comited|comitted|comitting|commite|commiting|committ|attempt|attempts|attempted|attempting|atempt|atempted|atempts|attemp|attemped|attemps|attempter|attemt|attemted|attemts|attepts)(?:\\W+\\w+){0,3}?\\W+(suicide|suicides|sucicide|sucide|suicde|suicid|suiside|suicided|suiciding)\\b)",
+                        "(\\b(kill|killing|cut|cuts|cutting|shoot|shot|shooting|h(u|e)rt|hang|hanging|hanged)(?:\\W+\\w+){0,3}?\\W+(my(\\s+)?self)\\b)",
+                        "(\\b(end|ending|ended|take|taking|took)(\\s+)?(my|me)(?:\\W+\\w+){0,3}?\\W+(life)\\b)"
+                    ],
+                    "keyphrases": [
+                        "curl up and die",
+                        "wish i was dead",
+                        "how many pills to overdose",
+                        "tie a noose",
+                        "want to die",
+                        "end it all",
+                        "no hope left",
+                        "slit my wrists",
+                        "my death",
+                        "my funeral",
+                        "my suicide",
+                        "thoughts of suicide",
+                        "disappearing from this life",
+                        "mourn my passing",
+                        "depart from this life",
+                        "my final moments",
+                        "taken the path most dreaded",
+                        "farewell forever",
+                        "no reason to breathe anymore",
+                        "ready to no longer exist",
+                        "goguardian is trash"
+                    ]
+                },
+                "whitelist": [
+                    {
+                        "category": "xxx",
+                        "hostname": "meet.google.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.meet.google.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "meet.google.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.meet.google.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "meet.google.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.meet.google.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "doxy.me"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.doxy.me"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "doxy.me"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.doxy.me"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "doxy.me"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.doxy.me"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "quizizz.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.quizizz.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "app.scholastic.edu"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.app.scholastic.edu"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "game-v136.asdreading.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.game-v136.asdreading.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "game-v136.asdreading.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.game-v136.asdreading.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "game-v136.asdreading.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.game-v136.asdreading.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "global-zone08.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.global-zone08.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "global-zone08.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.global-zone08.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "global-zone08.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.global-zone08.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "global-zone20.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.global-zone20.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "global-zone20.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.global-zone20.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "global-zone20.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.global-zone20.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "play.stmath.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.play.stmath.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "play.stmath.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.play.stmath.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "play.stmath.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.play.stmath.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.stmath.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.stmath.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.stmath.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "student.quavered.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.student.quavered.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "student.quavered.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.student.quavered.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "student.quavered.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.student.quavered.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.hmhco.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.hmhco.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.hmhco.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "happynumbers.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.happynumbers.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "happynumbers.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.happynumbers.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "happynumbers.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.happynumbers.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "quizlet.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.quizlet.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "quizlet.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.quizlet.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "quizlet.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.quizlet.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "istation.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.istation.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "istation.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.istation.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "istation.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.istation.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "isip.istation.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.isip.istation.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "isip.istation.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.isip.istation.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "isip.istation.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.isip.istation.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "duolingo.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.duolingo.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "duolingo.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.duolingo.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "duolingo.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.duolingo.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.duolingo.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.duolingo.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.duolingo.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "palsk8.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.palsk8.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "palsk8.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.palsk8.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "palsk8.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.palsk8.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "kahoot.it"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.kahoot.it"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "kahoot.it"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.kahoot.it"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "kahoot.it"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.kahoot.it"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "reading.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.reading.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "reading.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.reading.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "reading.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.reading.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.freckle.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.freckle.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.freckle.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "totale.rosettastone.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.totale.rosettastone.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "totale.rosettastone.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.totale.rosettastone.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "totale.rosettastone.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.totale.rosettastone.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "lls.padistance.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.lls.padistance.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "lls.padistance.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.lls.padistance.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "lls.padistance.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.lls.padistance.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.netflix.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.netflix.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.netflix.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "app.seesaw.me"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.app.seesaw.me"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "app.seesaw.me"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.app.seesaw.me"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "app.seesaw.me"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.app.seesaw.me"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "web.seesaw.me"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.web.seesaw.me"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "web.seesaw.me"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.web.seesaw.me"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "web.seesaw.me"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.web.seesaw.me"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "abcmouse.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.abcmouse.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "abcmouse.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.abcmouse.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "abcmouse.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.abcmouse.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "newsela.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.newsela.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "newsela.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.newsela.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "newsela.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.newsela.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "course.apexlearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.course.apexlearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "course.apexlearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.course.apexlearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "course.apexlearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.course.apexlearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.kidsa-z.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.kidsa-z.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.kidsa-z.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "login.i-ready.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.login.i-ready.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "login.i-ready.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.login.i-ready.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "login.i-ready.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.login.i-ready.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "pbskids.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.pbskids.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "pbskids.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.pbskids.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "pbskids.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.pbskids.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.highlineschools.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.highlineschools.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.highlineschools.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "student.freckle.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.student.freckle.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "student.freckle.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.student.freckle.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "student.freckle.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.student.freckle.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "app.classkick.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.app.classkick.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "app.classkick.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.app.classkick.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "app.classkick.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.app.classkick.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "h100005542.education.scholastic.com/r180u/"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.h100005542.education.scholastic.com/r180u/"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "h100005542.education.scholastic.com/r180u/"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.h100005542.education.scholastic.com/r180u/"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "h100005542.education.scholastic.com/r180u/"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.h100005542.education.scholastic.com/r180u/"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "dorchester2-my.sharepoint.com/"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.dorchester2-my.sharepoint.com/"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "dorchester2-my.sharepoint.com/"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.dorchester2-my.sharepoint.com/"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "dorchester2-my.sharepoint.com/"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.dorchester2-my.sharepoint.com/"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "lexiacore5.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.lexiacore5.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "lexiacore5.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.lexiacore5.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "lexiacore5.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.lexiacore5.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.lexiacore5.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.lexiacore5.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.lexiacore5.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "pbskids.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.pbskids.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "pbskids.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.pbskids.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "pbskids.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.pbskids.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "course.apexlearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.course.apexlearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "course.apexlearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.course.apexlearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "course.apexlearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.course.apexlearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "mobymax.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.mobymax.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "mobymax.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.mobymax.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "mobymax.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.mobymax.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "student.lalilo.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.student.lalilo.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "student.lalilo.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.student.lalilo.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "student.lalilo.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.student.lalilo.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "app.nearpod.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.app.nearpod.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "app.nearpod.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.app.nearpod.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "app.nearpod.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.app.nearpod.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.imaginelearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.imaginelearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.imaginelearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "myapps.classlink.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.myapps.classlink.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "myapps.classlink.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.myapps.classlink.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "myapps.classlink.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.myapps.classlink.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.edgenuity.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.edgenuity.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.edgenuity.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "reading.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.reading.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "reading.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.reading.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "reading.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.reading.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.reflexmath.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.reflexmath.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.reflexmath.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "home.xtramath.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.home.xtramath.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "home.xtramath.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.home.xtramath.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "home.xtramath.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.home.xtramath.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "happynumbers.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.happynumbers.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "happynumbers.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.happynumbers.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "happynumbers.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.happynumbers.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "my.mheducation.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.my.mheducation.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "my.mheducation.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.my.mheducation.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "my.mheducation.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.my.mheducation.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.deltamath.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.deltamath.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.deltamath.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.lausd.reading.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "launchpad.classlink.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.launchpad.classlink.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "launchpad.classlink.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.launchpad.classlink.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "launchpad.classlink.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.launchpad.classlink.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "mrhs.highlineschools.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.mrhs.highlineschools.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "mrhs.highlineschools.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.mrhs.highlineschools.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "mrhs.highlineschools.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.mrhs.highlineschools.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.hmhco.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.hmhco.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.hmhco.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "highlineschools.zoom.us"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.highlineschools.zoom.us"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "highlineschools.zoom.us"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.highlineschools.zoom.us"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "highlineschools.zoom.us"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.highlineschools.zoom.us"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.ixl.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.ixl.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.ixl.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "hhs.highlineschools.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.hhs.highlineschools.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "hhs.highlineschools.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.hhs.highlineschools.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "hhs.highlineschools.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.hhs.highlineschools.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.kidsa-z.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.kidsa-z.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.kidsa-z.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "app.peardeck.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.app.peardeck.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "app.peardeck.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.app.peardeck.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "app.peardeck.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.app.peardeck.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "student.desmos.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.student.desmos.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "student.desmos.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.student.desmos.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "student.desmos.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.student.desmos.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "teacher.goguardian.com "
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.teacher.goguardian.com "
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "teacher.goguardian.com "
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.teacher.goguardian.com "
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "teacher.goguardian.com "
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.teacher.goguardian.com "
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "osmanager4.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.osmanager4.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "osmanager4.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.osmanager4.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "osmanager4.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.osmanager4.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "lls.padistance.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.lls.padistance.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "lls.padistance.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.lls.padistance.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "lls.padistance.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.lls.padistance.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "global-zone05.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.global-zone05.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "global-zone05.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.global-zone05.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "global-zone05.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.global-zone05.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "global-zone51.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.global-zone51.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "global-zone51.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.global-zone51.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "global-zone51.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.global-zone51.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "global-zone50.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.global-zone50.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "global-zone50.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.global-zone50.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "global-zone50.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.global-zone50.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "global-zone52.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.global-zone52.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "global-zone52.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.global-zone52.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "global-zone52.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.global-zone52.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "global-zone53.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.global-zone53.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "global-zone53.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.global-zone53.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "global-zone53.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.global-zone53.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "zone05-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.zone05-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "zone05-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.zone05-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "zone05-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.zone05-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "zone20-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.zone20-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "zone20-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.zone20-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "zone20-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.zone20-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "zone53-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.zone53-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "zone53-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.zone53-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "zone53-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.zone53-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "zone08-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.zone08-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "zone08-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.zone08-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "zone08-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.zone08-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "zone50-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.zone50-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "zone50-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.zone50-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "zone50-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.zone50-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "zone53-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.zone53-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "zone53-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.zone53-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "zone53-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.zone53-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "zone51-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.zone51-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "zone51-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.zone51-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "zone51-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.zone51-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "zone52-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.zone52-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "zone52-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.zone52-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "zone52-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.zone52-educator.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "zone52-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.zone52-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "zone52-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.zone52-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "zone52-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.zone52-student.renaissance-go.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "dorchester2-my.sharepoint.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.dorchester2-my.sharepoint.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "dorchester2-my.sharepoint.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.dorchester2-my.sharepoint.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "dorchester2-my.sharepoint.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.dorchester2-my.sharepoint.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "dorchester2.sharepoint.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.dorchester2.sharepoint.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "dorchester2.sharepoint.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.dorchester2.sharepoint.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "dorchester2.sharepoint.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.dorchester2.sharepoint.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "pinkcatgames.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.pinkcatgames.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "pinkcatgames.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.pinkcatgames.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "pinkcatgames.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.pinkcatgames.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "read.capitlearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.read.capitlearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "read.capitlearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.read.capitlearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "read.capitlearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.read.capitlearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "fastbridge.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.fastbridge.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "fastbridge.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.fastbridge.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "fastbridge.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.fastbridge.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "gimkit.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.gimkit.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "gimkit.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.gimkit.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "gimkit.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.gimkit.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "navarrocollege.instructure.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.navarrocollege.instructure.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "navarrocollege.instructure.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.navarrocollege.instructure.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "navarrocollege.instructure.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.navarrocollege.instructure.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.getthefacts.health.wa.gov.au"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.getthefacts.health.wa.gov.au"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.getthefacts.health.wa.gov.au"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "explorelearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.explorelearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "explorelearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.explorelearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "explorelearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.explorelearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "vtmsyrbs.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.vtmsyrbs.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "vtmsyrbs.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.vtmsyrbs.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "vtmsyrbs.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.vtmsyrbs.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "vthsyrbs.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.vthsyrbs.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "vthsyrbs.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.vthsyrbs.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "vthsyrbs.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.vthsyrbs.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "OSmanager4.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.OSmanager4.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "OSmanager4.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.OSmanager4.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "OSmanager4.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.OSmanager4.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "blooket.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.blooket.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "blooket.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.blooket.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "blooket.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.blooket.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "play.blooket.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.play.blooket.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "play.blooket.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.play.blooket.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "play.blooket.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.play.blooket.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "dashboard.blooket.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.dashboard.blooket.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "dashboard.blooket.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.dashboard.blooket.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "dashboard.blooket.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.dashboard.blooket.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "readingfluency.mapnwea.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.readingfluency.mapnwea.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "readingfluency.mapnwea.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.readingfluency.mapnwea.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "readingfluency.mapnwea.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.readingfluency.mapnwea.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "app.booknooklearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.app.booknooklearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "app.booknooklearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.app.booknooklearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "app.booknooklearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.app.booknooklearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "adventureacademy.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.adventureacademy.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "adventureacademy.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.adventureacademy.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "adventureacademy.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.adventureacademy.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "studio.code.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.studio.code.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "studio.code.org"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.studio.code.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "studio.code.org"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.studio.code.org"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "content.explorelearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.content.explorelearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "content.explorelearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.content.explorelearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "content.explorelearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.content.explorelearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "app.writable.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.app.writable.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "app.writable.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.app.writable.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "app.writable.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.app.writable.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "app.7shifts.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.app.7shifts.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "app.7shifts.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.app.7shifts.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "app.7shifts.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.app.7shifts.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "readingiq.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.readingiq.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "readingiq.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.readingiq.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "readingiq.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.readingiq.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "play.kahoot.it"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.play.kahoot.it"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "play.kahoot.it"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.play.kahoot.it"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "play.kahoot.it"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.play.kahoot.it"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "easybib.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.easybib.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "easybib.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.easybib.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "easybib.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.easybib.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "chegg.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.chegg.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "chegg.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.chegg.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "chegg.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.chegg.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "citationmachine.net"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.citationmachine.net"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "citationmachine.net"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.citationmachine.net"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "citationmachine.net"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.citationmachine.net"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.amiratutor.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.amiratutor.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.amiratutor.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "asdreading.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.asdreading.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "asdreading.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.asdreading.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "asdreading.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.asdreading.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "go.brightfishlearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.go.brightfishlearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "go.brightfishlearning.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.go.brightfishlearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "go.brightfishlearning.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.go.brightfishlearning.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "lls.padistance.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.lls.padistance.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "lls.padistance.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.lls.padistance.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "lls.padistance.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.lls.padistance.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "app.seesaw.me"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.app.seesaw.me"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "app.seesaw.me"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.app.seesaw.me"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "app.seesaw.me"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.app.seesaw.me"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.farmersville.k12.ca.us"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "blooket.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.blooket.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "blooket.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.blooket.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "blooket.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.blooket.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "vocabulary.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.vocabulary.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "vocabulary.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.vocabulary.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "vocabulary.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.vocabulary.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "amplify.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "amplify.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.amplify.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "abcmouse.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.abcmouse.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "abcmouse.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.abcmouse.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "abcmouse.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.abcmouse.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "searchmytab.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.searchmytab.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "searchmytab.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.searchmytab.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "searchmytab.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.searchmytab.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "hachtava.co.il"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.hachtava.co.il"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "hachtava.co.il"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.hachtava.co.il"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "hachtava.co.il"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.hachtava.co.il"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "lalilo.com"
+                    },
+                    {
+                        "category": "guns",
+                        "hostname": "www.lalilo.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "lalilo.com"
+                    },
+                    {
+                        "category": "xxx",
+                        "hostname": "www.lalilo.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "lalilo.com"
+                    },
+                    {
+                        "category": "self-harm",
+                        "hostname": "www.lalilo.com"
+                    }
+                ],
+                "x3v3PredictorEnabled": true
+            },
+            "smartFiltering": {
+                "enabled": true,
+                "proxiesEnabled": true,
+                "threatsEnabled": false,
+                "smartAlertsForProxyEnabled": false
+            },
+            "experiments": {
+                "enabled": false
+            },
+            "beacon": {
+                "enabled": true,
+                "shadowCollect": false,
+                "tier": null,
+                "pauseModeEnabled": false
+            },
+            "mlPipeline": {
+                "enabled": false
+            },
+            "dataCollectionLicenseCheck": true,
+            "dataCollectionAllEntities": true,
+            "pusherWssOnly": true,
+            "senderExperiment": true,
+            "senderExperimentMLP": true,
+            "chat": true,
+            "rtc": true,
+            "teacherAlbChatroom": true,
+            "teacherAlbReasonableBeef": false,
+            "teacherChatroomV2": true,
+            "teacherExtScreenshots": true,
+            "teacherPusherStateData": true,
+            "extensionPusherChat": true,
+            "extensionPusherCommandsData": true,
+            "extensionPusherStateData": true,
+            "teacherLessonPlanV2FilterLogic": false,
+            "teacherDynamicScreenshotResolution": true,
+            "teacherScreenshotRawBytes": true,
+            "teacherFetchLessonPlanFromSnat": true,
+            "teacherLessonPlanV2_1_FilterLogic": true,
+            "teacherFastRefresh": true,
+            "teacherSkipRedundantLiveState": true,
+            "teacherLiveStatePresenceDetection": true,
+            "teacherVariableEntityFlushRate": true,
+            "teacherV2ScenesBlockPage": true,
+            "teacherAllowDefaultTabs": true,
+            "teacherExtensionChatUpdatesPhase1": true,
+            "teacherStudentMonitoringAlert": false,
+            "classtopia": true,
+            "eventTransportSettings": {
+                "history": {
+                    "luigi": {
+                        "endpoint": "luigi_history"
+                    },
+                    "disabled": true
+                },
+                "video": {
+                    "luigi": {
+                        "endpoint": "luigi_other"
+                    },
+                    "disabled": true
+                },
+                "doc": {
+                    "luigi": {
+                        "endpoint": "luigi_other"
+                    },
+                    "disabled": true
+                },
+                "search": {
+                    "luigi": {
+                        "endpoint": "luigi_other"
+                    },
+                    "disabled": true
+                },
+                "blocked_video": {
+                    "luigi": {
+                        "endpoint": "luigi_other"
+                    }
+                },
+                "blocked_site": {
+                    "luigi": {
+                        "endpoint": "luigi_other"
+                    },
+                    "disabled": true
+                },
+                "flagged_site": {
+                    "luigi": {
+                        "endpoint": "luigi_other"
+                    },
+                    "disabled": true
+                },
+                "roll_call": {
+                    "luigi": {
+                        "endpoint": "luigi_roll_call"
+                    }
+                }
+            },
+            "parentalControlsEnabled": true
+        },
+        "flagging": {
+            "terms": [
+                {
+                    "term": "4-MTA",
+                    "severity": 3
+                },
+                {
+                    "term": "a_s_s",
+                    "severity": 1
+                },
+                {
+                    "term": "anal",
+                    "severity": 2
+                },
+                {
+                    "term": "anfetamines",
+                    "severity": 3
+                },
+                {
+                    "term": "animalsexual",
+                    "severity": 3
+                },
+                {
+                    "term": "ass",
+                    "severity": 1
+                },
+                {
+                    "term": "ass-fuck",
+                    "severity": 2
+                },
+                {
+                    "term": "asses",
+                    "severity": 1
+                },
+                {
+                    "term": "assfukka",
+                    "severity": 2
+                },
+                {
+                    "term": "asshole",
+                    "severity": 1
+                },
+                {
+                    "term": "assholes",
+                    "severity": 1
+                },
+                {
+                    "term": "asswhole",
+                    "severity": 1
+                },
+                {
+                    "term": "b!tch",
+                    "severity": 2
+                },
+                {
+                    "term": "b00bs",
+                    "severity": 2
+                },
+                {
+                    "term": "b1tch",
+                    "severity": 2
+                },
+                {
+                    "term": "ballbag",
+                    "severity": 1
+                },
+                {
+                    "term": "ballsack",
+                    "severity": 2
+                },
+                {
+                    "term": "bastard",
+                    "severity": 1
+                },
+                {
+                    "term": "beastial",
+                    "severity": 1
+                },
+                {
+                    "term": "beastiality",
+                    "severity": 3
+                },
+                {
+                    "term": "bellend",
+                    "severity": 1
+                },
+                {
+                    "term": "benzodiazopines",
+                    "severity": 3
+                },
+                {
+                    "term": "bestial",
+                    "severity": 1
+                },
+                {
+                    "term": "bestiality",
+                    "severity": 3
+                },
+                {
+                    "term": "bi+ch",
+                    "severity": 1
+                },
+                {
+                    "term": "biatch",
+                    "severity": 1
+                },
+                {
+                    "term": "bitch",
+                    "severity": 1
+                },
+                {
+                    "term": "bitcher",
+                    "severity": 1
+                },
+                {
+                    "term": "bitchers",
+                    "severity": 1
+                },
+                {
+                    "term": "bitches",
+                    "severity": 1
+                },
+                {
+                    "term": "bitchin",
+                    "severity": 1
+                },
+                {
+                    "term": "bitching",
+                    "severity": 1
+                },
+                {
+                    "term": "bloody",
+                    "severity": 1
+                },
+                {
+                    "term": "blow job",
+                    "severity": 2
+                },
+                {
+                    "term": "blowjob",
+                    "severity": 2
+                },
+                {
+                    "term": "blowjobs",
+                    "severity": 2
+                },
+                {
+                    "term": "bobo",
+                    "severity": 1
+                },
+                {
+                    "term": "bobos",
+                    "severity": 1
+                },
+                {
+                    "term": "bollock",
+                    "severity": 1
+                },
+                {
+                    "term": "bollok",
+                    "severity": 1
+                },
+                {
+                    "term": "bondage",
+                    "severity": 3
+                },
+                {
+                    "term": "boner",
+                    "severity": 1
+                },
+                {
+                    "term": "boob",
+                    "severity": 1
+                },
+                {
+                    "term": "boobs",
+                    "severity": 1
+                },
+                {
+                    "term": "booobs",
+                    "severity": 1
+                },
+                {
+                    "term": "boooobs",
+                    "severity": 1
+                },
+                {
+                    "term": "booooobs",
+                    "severity": 1
+                },
+                {
+                    "term": "booooooobs",
+                    "severity": 1
+                },
+                {
+                    "term": "breasts",
+                    "severity": 1
+                },
+                {
+                    "term": "bukakke",
+                    "severity": 3
+                },
+                {
+                    "term": "bum",
+                    "severity": 1
+                },
+                {
+                    "term": "bunny fucker",
+                    "severity": 2
+                },
+                {
+                    "term": "busty",
+                    "severity": 1
+                },
+                {
+                    "term": "butt",
+                    "severity": 1
+                },
+                {
+                    "term": "butthole",
+                    "severity": 1
+                },
+                {
+                    "term": "buttmuch",
+                    "severity": 1
+                },
+                {
+                    "term": "buttplug",
+                    "severity": 1
+                },
+                {
+                    "term": "c0ck",
+                    "severity": 1
+                },
+                {
+                    "term": "c0cksucker",
+                    "severity": 2
+                },
+                {
+                    "term": "canabis",
+                    "severity": 3
+                },
+                {
+                    "term": "cannabis",
+                    "severity": 3
+                },
+                {
+                    "term": "carpet muncher",
+                    "severity": 2
+                },
+                {
+                    "term": "casinos",
+                    "severity": 1
+                },
+                {
+                    "term": "cawk",
+                    "severity": 1
+                },
+                {
+                    "term": "chink",
+                    "severity": 1
+                },
+                {
+                    "term": "cl1t",
+                    "severity": 1
+                },
+                {
+                    "term": "climax",
+                    "severity": 1
+                },
+                {
+                    "term": "clit",
+                    "severity": 1
+                },
+                {
+                    "term": "clitoris",
+                    "severity": 1
+                },
+                {
+                    "term": "clits",
+                    "severity": 1
+                },
+                {
+                    "term": "cnut",
+                    "severity": 1
+                },
+                {
+                    "term": "cocaine",
+                    "severity": 3
+                },
+                {
+                    "term": "cock",
+                    "severity": 1
+                },
+                {
+                    "term": "cockface",
+                    "severity": 2
+                },
+                {
+                    "term": "cockhead",
+                    "severity": 2
+                },
+                {
+                    "term": "cockmunch",
+                    "severity": 2
+                },
+                {
+                    "term": "cocks",
+                    "severity": 1
+                },
+                {
+                    "term": "cocksuck",
+                    "severity": 2
+                },
+                {
+                    "term": "cocksucked",
+                    "severity": 2
+                },
+                {
+                    "term": "cocksucking",
+                    "severity": 2
+                },
+                {
+                    "term": "cocksucks",
+                    "severity": 2
+                },
+                {
+                    "term": "cocksuka",
+                    "severity": 2
+                },
+                {
+                    "term": "cocksukka",
+                    "severity": 2
+                },
+                {
+                    "term": "cok",
+                    "severity": 1
+                },
+                {
+                    "term": "coksucka",
+                    "severity": 1
+                },
+                {
+                    "term": "colon",
+                    "severity": 3
+                },
+                {
+                    "term": "cox",
+                    "severity": 1
+                },
+                {
+                    "term": "creampie",
+                    "severity": 3
+                },
+                {
+                    "term": "cum",
+                    "severity": 1
+                },
+                {
+                    "term": "cummer",
+                    "severity": 1
+                },
+                {
+                    "term": "cumming",
+                    "severity": 1
+                },
+                {
+                    "term": "cums",
+                    "severity": 1
+                },
+                {
+                    "term": "cumshot",
+                    "severity": 2
+                },
+                {
+                    "term": "cunilingus",
+                    "severity": 1
+                },
+                {
+                    "term": "cunillingus",
+                    "severity": 1
+                },
+                {
+                    "term": "cunnilingus",
+                    "severity": 1
+                },
+                {
+                    "term": "cunt",
+                    "severity": 1
+                },
+                {
+                    "term": "cuntlick",
+                    "severity": 2
+                },
+                {
+                    "term": "cuntlicking",
+                    "severity": 2
+                },
+                {
+                    "term": "cunts",
+                    "severity": 1
+                },
+                {
+                    "term": "cyalis",
+                    "severity": 1
+                },
+                {
+                    "term": "cyberfuc",
+                    "severity": 3
+                },
+                {
+                    "term": "cyberfuck",
+                    "severity": 3
+                },
+                {
+                    "term": "cyberfucked",
+                    "severity": 3
+                },
+                {
+                    "term": "cyberfucker",
+                    "severity": 3
+                },
+                {
+                    "term": "cyberfuckers",
+                    "severity": 3
+                },
+                {
+                    "term": "cyberfucking",
+                    "severity": 3
+                },
+                {
+                    "term": "d1ck",
+                    "severity": 1
+                },
+                {
+                    "term": "dick",
+                    "severity": 1
+                },
+                {
+                    "term": "dickhead",
+                    "severity": 1
+                },
+                {
+                    "term": "dildo",
+                    "severity": 1
+                },
+                {
+                    "term": "dildos",
+                    "severity": 1
+                },
+                {
+                    "term": "dink",
+                    "severity": 1
+                },
+                {
+                    "term": "dinks",
+                    "severity": 1
+                },
+                {
+                    "term": "dlck",
+                    "severity": 1
+                },
+                {
+                    "term": "dog-fucker",
+                    "severity": 3
+                },
+                {
+                    "term": "doggin",
+                    "severity": 1
+                },
+                {
+                    "term": "dogging",
+                    "severity": 1
+                },
+                {
+                    "term": "donkeyribber",
+                    "severity": 3
+                },
+                {
+                    "term": "doosh",
+                    "severity": 1
+                },
+                {
+                    "term": "duche",
+                    "severity": 1
+                },
+                {
+                    "term": "ejaculate",
+                    "severity": 1
+                },
+                {
+                    "term": "ejaculated",
+                    "severity": 1
+                },
+                {
+                    "term": "ejaculates",
+                    "severity": 1
+                },
+                {
+                    "term": "ejaculating",
+                    "severity": 1
+                },
+                {
+                    "term": "ejaculatings",
+                    "severity": 1
+                },
+                {
+                    "term": "ejaculation",
+                    "severity": 1
+                },
+                {
+                    "term": "ejakulate",
+                    "severity": 1
+                },
+                {
+                    "term": "elh",
+                    "severity": 1
+                },
+                {
+                    "term": "f u c k",
+                    "severity": 1
+                },
+                {
+                    "term": "f u c k e r",
+                    "severity": 1
+                },
+                {
+                    "term": "f_u_c_k",
+                    "severity": 1
+                },
+                {
+                    "term": "f4nny",
+                    "severity": 1
+                },
+                {
+                    "term": "fanny",
+                    "severity": 1
+                },
+                {
+                    "term": "fannyflaps",
+                    "severity": 1
+                },
+                {
+                    "term": "fannyfucker",
+                    "severity": 1
+                },
+                {
+                    "term": "fanyy",
+                    "severity": 1
+                },
+                {
+                    "term": "fatass",
+                    "severity": 1
+                },
+                {
+                    "term": "fcuk",
+                    "severity": 1
+                },
+                {
+                    "term": "fcuker",
+                    "severity": 1
+                },
+                {
+                    "term": "fcuking",
+                    "severity": 1
+                },
+                {
+                    "term": "fecal",
+                    "severity": 2
+                },
+                {
+                    "term": "feck",
+                    "severity": 1
+                },
+                {
+                    "term": "fecker",
+                    "severity": 1
+                },
+                {
+                    "term": "felching",
+                    "severity": 1
+                },
+                {
+                    "term": "fellate",
+                    "severity": 1
+                },
+                {
+                    "term": "fellatio",
+                    "severity": 2
+                },
+                {
+                    "term": "fetish",
+                    "severity": 1
+                },
+                {
+                    "term": "fingerfuck",
+                    "severity": 2
+                },
+                {
+                    "term": "fingerfucked",
+                    "severity": 2
+                },
+                {
+                    "term": "fingerfucker",
+                    "severity": 2
+                },
+                {
+                    "term": "fingerfuckers",
+                    "severity": 2
+                },
+                {
+                    "term": "fingerfucking",
+                    "severity": 2
+                },
+                {
+                    "term": "fingerfucks",
+                    "severity": 2
+                },
+                {
+                    "term": "fisted",
+                    "severity": 3
+                },
+                {
+                    "term": "fistfuck",
+                    "severity": 2
+                },
+                {
+                    "term": "fistfucked",
+                    "severity": 2
+                },
+                {
+                    "term": "fistfucker",
+                    "severity": 2
+                },
+                {
+                    "term": "fistfuckers",
+                    "severity": 2
+                },
+                {
+                    "term": "fistfucking",
+                    "severity": 2
+                },
+                {
+                    "term": "fistfuckings",
+                    "severity": 2
+                },
+                {
+                    "term": "fistfucks",
+                    "severity": 2
+                },
+                {
+                    "term": "fisting",
+                    "severity": 3
+                },
+                {
+                    "term": "fists",
+                    "severity": 3
+                },
+                {
+                    "term": "flogged",
+                    "severity": 1
+                },
+                {
+                    "term": "fook",
+                    "severity": 1
+                },
+                {
+                    "term": "fooker",
+                    "severity": 1
+                },
+                {
+                    "term": "foot job",
+                    "severity": 2
+                },
+                {
+                    "term": "footjob",
+                    "severity": 2
+                },
+                {
+                    "term": "fuck",
+                    "severity": 1
+                },
+                {
+                    "term": "fucka",
+                    "severity": 1
+                },
+                {
+                    "term": "fucked",
+                    "severity": 1
+                },
+                {
+                    "term": "fucker",
+                    "severity": 1
+                },
+                {
+                    "term": "fuckers",
+                    "severity": 1
+                },
+                {
+                    "term": "fuckhead",
+                    "severity": 1
+                },
+                {
+                    "term": "fuckheads",
+                    "severity": 1
+                },
+                {
+                    "term": "fuckin",
+                    "severity": 1
+                },
+                {
+                    "term": "fucking",
+                    "severity": 1
+                },
+                {
+                    "term": "fuckings",
+                    "severity": 1
+                },
+                {
+                    "term": "fuckingshitmotherfucker",
+                    "severity": 1
+                },
+                {
+                    "term": "fuckme",
+                    "severity": 2
+                },
+                {
+                    "term": "fucks",
+                    "severity": 1
+                },
+                {
+                    "term": "fuckwhit",
+                    "severity": 1
+                },
+                {
+                    "term": "fuckwit",
+                    "severity": 1
+                },
+                {
+                    "term": "fuk",
+                    "severity": 1
+                },
+                {
+                    "term": "fuker",
+                    "severity": 1
+                },
+                {
+                    "term": "fukker",
+                    "severity": 1
+                },
+                {
+                    "term": "fukkin",
+                    "severity": 1
+                },
+                {
+                    "term": "fuks",
+                    "severity": 1
+                },
+                {
+                    "term": "fukwhit",
+                    "severity": 1
+                },
+                {
+                    "term": "fukwit",
+                    "severity": 1
+                },
+                {
+                    "term": "fux",
+                    "severity": 1
+                },
+                {
+                    "term": "fux0r",
+                    "severity": 1
+                },
+                {
+                    "term": "gangbang",
+                    "severity": 3
+                },
+                {
+                    "term": "gangbanged",
+                    "severity": 3
+                },
+                {
+                    "term": "gangbangs",
+                    "severity": 3
+                },
+                {
+                    "term": "gangrape",
+                    "severity": 3
+                },
+                {
+                    "term": "GHB",
+                    "severity": 3
+                },
+                {
+                    "term": "god-dam",
+                    "severity": 1
+                },
+                {
+                    "term": "group sex",
+                    "severity": 3
+                },
+                {
+                    "term": "hacking",
+                    "severity": 2
+                },
+                {
+                    "term": "hand job",
+                    "severity": 2
+                },
+                {
+                    "term": "handjob",
+                    "severity": 2
+                },
+                {
+                    "term": "hardcore",
+                    "severity": 1
+                },
+                {
+                    "term": "hardcoresex",
+                    "severity": 3
+                },
+                {
+                    "term": "hardsex",
+                    "severity": 3
+                },
+                {
+                    "term": "heroin",
+                    "severity": 3
+                },
+                {
+                    "term": "hoar",
+                    "severity": 1
+                },
+                {
+                    "term": "hoare",
+                    "severity": 1
+                },
+                {
+                    "term": "hoer",
+                    "severity": 1
+                },
+                {
+                    "term": "hore",
+                    "severity": 1
+                },
+                {
+                    "term": "horniest",
+                    "severity": 1
+                },
+                {
+                    "term": "horny",
+                    "severity": 1
+                },
+                {
+                    "term": "hotsex",
+                    "severity": 2
+                },
+                {
+                    "term": "jack-off",
+                    "severity": 1
+                },
+                {
+                    "term": "jackoff",
+                    "severity": 1
+                },
+                {
+                    "term": "jap",
+                    "severity": 1
+                },
+                {
+                    "term": "jerk-off",
+                    "severity": 1
+                },
+                {
+                    "term": "jism",
+                    "severity": 1
+                },
+                {
+                    "term": "jiz",
+                    "severity": 2
+                },
+                {
+                    "term": "jizm",
+                    "severity": 2
+                },
+                {
+                    "term": "jizz",
+                    "severity": 2
+                },
+                {
+                    "term": "jizzed",
+                    "severity": 3
+                },
+                {
+                    "term": "kawk",
+                    "severity": 1
+                },
+                {
+                    "term": "kenke",
+                    "severity": 3
+                },
+                {
+                    "term": "knob",
+                    "severity": 1
+                },
+                {
+                    "term": "knobead",
+                    "severity": 1
+                },
+                {
+                    "term": "knobed",
+                    "severity": 1
+                },
+                {
+                    "term": "knobend",
+                    "severity": 1
+                },
+                {
+                    "term": "knobhead",
+                    "severity": 1
+                },
+                {
+                    "term": "knobjocky",
+                    "severity": 1
+                },
+                {
+                    "term": "knobjokey",
+                    "severity": 1
+                },
+                {
+                    "term": "kock",
+                    "severity": 1
+                },
+                {
+                    "term": "kondum",
+                    "severity": 1
+                },
+                {
+                    "term": "kondums",
+                    "severity": 1
+                },
+                {
+                    "term": "kum",
+                    "severity": 1
+                },
+                {
+                    "term": "kummer",
+                    "severity": 1
+                },
+                {
+                    "term": "kumming",
+                    "severity": 1
+                },
+                {
+                    "term": "kums",
+                    "severity": 1
+                },
+                {
+                    "term": "kunilingus",
+                    "severity": 1
+                },
+                {
+                    "term": "labia",
+                    "severity": 1
+                },
+                {
+                    "term": "lambeme",
+                    "severity": 2
+                },
+                {
+                    "term": "LSD",
+                    "severity": 3
+                },
+                {
+                    "term": "ma5terbate",
+                    "severity": 1
+                },
+                {
+                    "term": "mammon",
+                    "severity": 3
+                },
+                {
+                    "term": "mamon",
+                    "severity": 3
+                },
+                {
+                    "term": "masochist",
+                    "severity": 1
+                },
+                {
+                    "term": "master-bate",
+                    "severity": 1
+                },
+                {
+                    "term": "masterb8",
+                    "severity": 1
+                },
+                {
+                    "term": "masterbate",
+                    "severity": 1
+                },
+                {
+                    "term": "masterbation",
+                    "severity": 1
+                },
+                {
+                    "term": "masterbations",
+                    "severity": 1
+                },
+                {
+                    "term": "masturbacion",
+                    "severity": 3
+                },
+                {
+                    "term": "masturbate",
+                    "severity": 1
+                },
+                {
+                    "term": "mear",
+                    "severity": 1
+                },
+                {
+                    "term": "mearse",
+                    "severity": 1
+                },
+                {
+                    "term": "milf",
+                    "severity": 3
+                },
+                {
+                    "term": "mo-fo",
+                    "severity": 1
+                },
+                {
+                    "term": "mof0",
+                    "severity": 1
+                },
+                {
+                    "term": "mofo",
+                    "severity": 1
+                },
+                {
+                    "term": "mother fucker",
+                    "severity": 1
+                },
+                {
+                    "term": "motherfuck",
+                    "severity": 1
+                },
+                {
+                    "term": "motherfucked",
+                    "severity": 1
+                },
+                {
+                    "term": "motherfucker",
+                    "severity": 1
+                },
+                {
+                    "term": "muff",
+                    "severity": 1
+                },
+                {
+                    "term": "mutha",
+                    "severity": 1
+                },
+                {
+                    "term": "muthafecker",
+                    "severity": 1
+                },
+                {
+                    "term": "muthafuckker",
+                    "severity": 1
+                },
+                {
+                    "term": "muther",
+                    "severity": 1
+                },
+                {
+                    "term": "mutherfucker",
+                    "severity": 1
+                },
+                {
+                    "term": "n1gga",
+                    "severity": 3
+                },
+                {
+                    "term": "n1gger",
+                    "severity": 3
+                },
+                {
+                    "term": "nabo",
+                    "severity": 3
+                },
+                {
+                    "term": "naughty",
+                    "severity": 1
+                },
+                {
+                    "term": "nazi",
+                    "severity": 1
+                },
+                {
+                    "term": "nigg3r",
+                    "severity": 2
+                },
+                {
+                    "term": "nigg4h",
+                    "severity": 2
+                },
+                {
+                    "term": "nigga",
+                    "severity": 2
+                },
+                {
+                    "term": "niggah",
+                    "severity": 2
+                },
+                {
+                    "term": "niggas",
+                    "severity": 2
+                },
+                {
+                    "term": "niggaz",
+                    "severity": 2
+                },
+                {
+                    "term": "nigger",
+                    "severity": 2
+                },
+                {
+                    "term": "niggers",
+                    "severity": 2
+                },
+                {
+                    "term": "nob",
+                    "severity": 1
+                },
+                {
+                    "term": "nob jokey",
+                    "severity": 1
+                },
+                {
+                    "term": "nobhead",
+                    "severity": 1
+                },
+                {
+                    "term": "nobjocky",
+                    "severity": 1
+                },
+                {
+                    "term": "nobjokey",
+                    "severity": 1
+                },
+                {
+                    "term": "norro",
+                    "severity": 2
+                },
+                {
+                    "term": "nsfw",
+                    "severity": 3
+                },
+                {
+                    "term": "nude",
+                    "severity": 1
+                },
+                {
+                    "term": "numbnuts",
+                    "severity": 1
+                },
+                {
+                    "term": "nutsack",
+                    "severity": 1
+                },
+                {
+                    "term": "orgasim",
+                    "severity": 1
+                },
+                {
+                    "term": "orgasims",
+                    "severity": 1
+                },
+                {
+                    "term": "orgasms",
+                    "severity": 1
+                },
+                {
+                    "term": "orgy",
+                    "severity": 3
+                },
+                {
+                    "term": "p0rn",
+                    "severity": 2
+                },
+                {
+                    "term": "PCP",
+                    "severity": 1
+                },
+                {
+                    "term": "pecker",
+                    "severity": 1
+                },
+                {
+                    "term": "pedophile",
+                    "severity": 3
+                },
+                {
+                    "term": "pedos",
+                    "severity": 1
+                },
+                {
+                    "term": "penis",
+                    "severity": 1
+                },
+                {
+                    "term": "phonesex",
+                    "severity": 2
+                },
+                {
+                    "term": "phuck",
+                    "severity": 1
+                },
+                {
+                    "term": "phuk",
+                    "severity": 1
+                },
+                {
+                    "term": "phuked",
+                    "severity": 1
+                },
+                {
+                    "term": "phuking",
+                    "severity": 1
+                },
+                {
+                    "term": "phukked",
+                    "severity": 1
+                },
+                {
+                    "term": "phukking",
+                    "severity": 1
+                },
+                {
+                    "term": "phuks",
+                    "severity": 1
+                },
+                {
+                    "term": "phuq",
+                    "severity": 1
+                },
+                {
+                    "term": "porn",
+                    "severity": 2
+                },
+                {
+                    "term": "pornos",
+                    "severity": 2
+                },
+                {
+                    "term": "pornstar",
+                    "severity": 1
+                },
+                {
+                    "term": "pr0xies",
+                    "severity": 2
+                },
+                {
+                    "term": "pr0xy",
+                    "severity": 2
+                },
+                {
+                    "term": "prick",
+                    "severity": 1
+                },
+                {
+                    "term": "pricks",
+                    "severity": 1
+                },
+                {
+                    "term": "pron",
+                    "severity": 1
+                },
+                {
+                    "term": "proxies",
+                    "severity": 2
+                },
+                {
+                    "term": "proxy",
+                    "severity": 2
+                },
+                {
+                    "term": "pusse",
+                    "severity": 1
+                },
+                {
+                    "term": "pussi",
+                    "severity": 1
+                },
+                {
+                    "term": "pussies",
+                    "severity": 1
+                },
+                {
+                    "term": "pussy",
+                    "severity": 1
+                },
+                {
+                    "term": "pussys",
+                    "severity": 1
+                },
+                {
+                    "term": "rape",
+                    "severity": 3
+                },
+                {
+                    "term": "rapist",
+                    "severity": 2
+                },
+                {
+                    "term": "rectal",
+                    "severity": 2
+                },
+                {
+                    "term": "rectum",
+                    "severity": 1
+                },
+                {
+                    "term": "retard",
+                    "severity": 1
+                },
+                {
+                    "term": "rimjaw",
+                    "severity": 3
+                },
+                {
+                    "term": "rimming",
+                    "severity": 1
+                },
+                {
+                    "term": "rough sex",
+                    "severity": 3
+                },
+                {
+                    "term": "s_h_i_t",
+                    "severity": 1
+                },
+                {
+                    "term": "s.o.b.",
+                    "severity": 1
+                },
+                {
+                    "term": "S&M",
+                    "severity": 3
+                },
+                {
+                    "term": "sadist",
+                    "severity": 2
+                },
+                {
+                    "term": "schlong",
+                    "severity": 1
+                },
+                {
+                    "term": "screwing",
+                    "severity": 2
+                },
+                {
+                    "term": "scroat",
+                    "severity": 1
+                },
+                {
+                    "term": "scrote",
+                    "severity": 1
+                },
+                {
+                    "term": "scrotum",
+                    "severity": 1
+                },
+                {
+                    "term": "semen",
+                    "severity": 1
+                },
+                {
+                    "term": "sensual",
+                    "severity": 2
+                },
+                {
+                    "term": "sex",
+                    "severity": 1
+                },
+                {
+                    "term": "sexual",
+                    "severity": 1
+                },
+                {
+                    "term": "sexy",
+                    "severity": 2
+                },
+                {
+                    "term": "sh!+",
+                    "severity": 1
+                },
+                {
+                    "term": "sh!t",
+                    "severity": 1
+                },
+                {
+                    "term": "sh1t",
+                    "severity": 1
+                },
+                {
+                    "term": "shag",
+                    "severity": 1
+                },
+                {
+                    "term": "shagger",
+                    "severity": 1
+                },
+                {
+                    "term": "shaggin",
+                    "severity": 1
+                },
+                {
+                    "term": "shagging",
+                    "severity": 1
+                },
+                {
+                    "term": "shitdick",
+                    "severity": 1
+                },
+                {
+                    "term": "shitey",
+                    "severity": 1
+                },
+                {
+                    "term": "shitfuck",
+                    "severity": 1
+                },
+                {
+                    "term": "shitfull",
+                    "severity": 1
+                },
+                {
+                    "term": "shithead",
+                    "severity": 1
+                },
+                {
+                    "term": "shiting",
+                    "severity": 1
+                },
+                {
+                    "term": "shitings",
+                    "severity": 1
+                },
+                {
+                    "term": "shits",
+                    "severity": 1
+                },
+                {
+                    "term": "shitted",
+                    "severity": 1
+                },
+                {
+                    "term": "shitter",
+                    "severity": 1
+                },
+                {
+                    "term": "shitters",
+                    "severity": 1
+                },
+                {
+                    "term": "shitting",
+                    "severity": 1
+                },
+                {
+                    "term": "shittings",
+                    "severity": 1
+                },
+                {
+                    "term": "shitty",
+                    "severity": 1
+                },
+                {
+                    "term": "skank",
+                    "severity": 1
+                },
+                {
+                    "term": "slut",
+                    "severity": 1
+                },
+                {
+                    "term": "sluts",
+                    "severity": 1
+                },
+                {
+                    "term": "smegma",
+                    "severity": 1
+                },
+                {
+                    "term": "smoking hot",
+                    "severity": 2
+                },
+                {
+                    "term": "smut",
+                    "severity": 1
+                },
+                {
+                    "term": "snatch",
+                    "severity": 1
+                },
+                {
+                    "term": "son-of-a-bitch",
+                    "severity": 1
+                },
+                {
+                    "term": "strap on",
+                    "severity": 1
+                },
+                {
+                    "term": "striptease",
+                    "severity": 3
+                },
+                {
+                    "term": "t1tt1e5",
+                    "severity": 1
+                },
+                {
+                    "term": "t1tties",
+                    "severity": 1
+                },
+                {
+                    "term": "teets",
+                    "severity": 1
+                },
+                {
+                    "term": "testi",
+                    "severity": 2
+                },
+                {
+                    "term": "testical",
+                    "severity": 1
+                },
+                {
+                    "term": "testicle",
+                    "severity": 1
+                },
+                {
+                    "term": "tit",
+                    "severity": 1
+                },
+                {
+                    "term": "titfuck",
+                    "severity": 2
+                },
+                {
+                    "term": "tits",
+                    "severity": 1
+                },
+                {
+                    "term": "titt",
+                    "severity": 1
+                },
+                {
+                    "term": "tittie5",
+                    "severity": 1
+                },
+                {
+                    "term": "tittiefucker",
+                    "severity": 2
+                },
+                {
+                    "term": "titties",
+                    "severity": 1
+                },
+                {
+                    "term": "tittyfuck",
+                    "severity": 2
+                },
+                {
+                    "term": "tittywank",
+                    "severity": 1
+                },
+                {
+                    "term": "titwank",
+                    "severity": 1
+                },
+                {
+                    "term": "tw4t",
+                    "severity": 1
+                },
+                {
+                    "term": "twat",
+                    "severity": 1
+                },
+                {
+                    "term": "twathead",
+                    "severity": 1
+                },
+                {
+                    "term": "twatty",
+                    "severity": 1
+                },
+                {
+                    "term": "twunt",
+                    "severity": 1
+                },
+                {
+                    "term": "twunter",
+                    "severity": 1
+                },
+                {
+                    "term": "unblocked",
+                    "severity": 1
+                },
+                {
+                    "term": "v14gra",
+                    "severity": 1
+                },
+                {
+                    "term": "v1gra",
+                    "severity": 1
+                },
+                {
+                    "term": "vagina",
+                    "severity": 1
+                },
+                {
+                    "term": "viagra",
+                    "severity": 1
+                },
+                {
+                    "term": "voyeur",
+                    "severity": 2
+                },
+                {
+                    "term": "w00se",
+                    "severity": 1
+                },
+                {
+                    "term": "wang",
+                    "severity": 1
+                },
+                {
+                    "term": "wank",
+                    "severity": 1
+                },
+                {
+                    "term": "wanker",
+                    "severity": 1
+                },
+                {
+                    "term": "wanky",
+                    "severity": 1
+                },
+                {
+                    "term": "whoar",
+                    "severity": 1
+                },
+                {
+                    "term": "whore",
+                    "severity": 1
+                },
+                {
+                    "term": "x rated",
+                    "severity": 3
+                },
+                {
+                    "term": "xrated",
+                    "severity": 3
+                },
+                {
+                    "term": "xxx",
+                    "severity": 3
+                }
+            ],
+            "falsePositiveSites": []
+        },
+        "apiMap": {
+            "/api/v1/ext/user": "https://extapi.goguardian.com",
+            "/api/v1/ext/taskintervals": "https://snat.goguardian.com",
+            "/assets/scripts/ext/submitDelayedHistoryBatch.php": "https://snat.goguardian.com",
+            "/api/v1/ext/keyflags": "https://snat.goguardian.com",
+            "/api/v1/ext/privacy": "https://snat.goguardian.com"
+        },
+        "docs": {
+            "hostnames": [
+                "docs.google.com"
+            ],
+            "titleSelectors": [
+                "#docs-title-inner",
+                ".docs-title-input-label-inner"
+            ]
+        },
+        "policy": {
+            "refreshInterval": 300000
+        },
+        "searchUrlConfigJson": "{\"schema_version\":1,\"engines_version\":2,\"engines\":[{\"name\":\"bing\",\"hostname_regexes\":[\"^.*\\\\.bing\\\\..*$\"],\"path_regex\":\"^.*/search.*$\",\"search_terms\":{\"query_param\":\"q\"},\"safe_search\":{\"safe_url\":{\"query_param\":{\"name\":\"adlt\",\"value\":\"strict\"}}}},{\"name\":\"google\",\"hostname_regexes\":[\"^.*\\\\.google\\\\..*$\"],\"path_regex\":\"^.*/search.*$\",\"search_terms\":{\"query_param\":\"q\"},\"safe_search\":{\"safe_url\":{\"query_param\":{\"name\":\"safe\",\"value\":\"active\"}}}},{\"name\":\"wikihow\",\"hostname_regexes\":[\"^.*www.wikihow.com$\"],\"path_regex\":\"^.*/wikiHowTo.*$\",\"search_terms\":{\"query_param\":\"search\"},\"safe_search\":null},{\"name\":\"yahoo\",\"hostname_regexes\":[\"^.*search\\\\.yahoo\\\\..*$\"],\"path_regex\":\"^.*/search.*$\",\"search_terms\":{\"query_param\":\"p\"},\"safe_search\":{\"safe_url\":{\"query_param\":{\"name\":\"vm\",\"value\":\"r\"}}}},{\"name\":\"youtube\",\"hostname_regexes\":[\"^.*\\\\.youtube\\\\.com.*$\"],\"path_regex\":\"^.*/results.*$\",\"search_terms\":{\"query_param\":\"search_query\"},\"safe_search\":null}]}"
+    },
+    "blacklists": {
+        "bypass": [],
+        "searches": [],
+        "searchWhitelist": []
+    },
+    "licenses": [
+        "teacher"
+    ]
+}
